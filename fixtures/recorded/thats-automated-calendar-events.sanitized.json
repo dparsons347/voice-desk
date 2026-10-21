@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "appointmentStatus": "confirmed",
+      "appoinmentStatus": "confirmed",
+      "statusId": "xnZMiFCIP1XgzzUhg62S",
+      "state": "active",
+      "assignedUserId": "5O0e3BiO4Xh6gM9hNZbN",
+      "address": "Daniel will call you at the number you provided.",
+      "calendarId": "tJ8ERLSWKtrvOFpkaPRH",
+      "contactId": "ContactSamRivera0001",
+      "dateAdded": "2026-10-21T19:07:34.000Z",
+      "dateUpdated": "2026-10-21T19:07:34.000Z",
+      "endTime": "2026-10-22T09:20:00-05:00",
+      "id": "xKkqmrglAa0w4EVlMpjg",
+      "locationId": "LocExample0000000001",
+      "notes": "Sam Rivera; Rivera Electric; electrical contracting business; approximately 15 missed calls per week, currently going to voicemail. Caller agreed to text messages.",
+      "description": "Sam Rivera; Rivera Electric; electrical contracting business; approximately 15 missed calls per week, currently going to voicemail. Caller agreed to text messages.",
+      "startTime": "2026-10-22T09:00:00-05:00",
+      "title": "Intro call:  ",
+      "assignedResources": [],
+      "isRecurring": false,
+      "createdBy": {
+        "source": "voice_ai",
+        "userId": null
+      },
+      "appointmentMeta": {
+        "slotType": "default"
+      },
+      "deleted": false
+    }
+  ],
+  "traceId": "41d5f76f-7f84-4a75-825e-853868261480"
+}

@@ -1,0 +1,15 @@
+{
+  "contactId": "ContactSamRivera0001",
+  "fromNumber": "+15555550101",
+  "createdAt": "2026-10-21T19:04:01.751Z",
+  "duration": 23,
+  "agentId": "6ac7ec8e334399c74090affa",
+  "isAgentDeleted": false,
+  "summary": "The call ended without any substantive caller request or completed business action.",
+  "transcript": "Agent:  Mm-hm.",
+  "translation": null,
+  "messageId": "u6znMrG0dS995qr0xBq3",
+  "trialCall": false,
+  "id": "6ad90ca129516fbe6801ec3e",
+  "executedCallActions": []
+}

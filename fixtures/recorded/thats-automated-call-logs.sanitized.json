@@ -1,0 +1,73 @@
+{
+  "callLogs": [
+    {
+      "contactId": "ContactSamRivera0002",
+      "fromNumber": "+15555550101",
+      "createdAt": "2026-10-09T16:08:55.776Z",
+      "duration": 310,
+      "agentId": "6ac7ec8e334399c74090affa",
+      "isAgentDeleted": false,
+      "summary": "Sam requested a callback, and the request was accepted for 10 in the morning or 2 in the afternoon. He declined texts and confirmed his email address as S A M R I V R at example dot com; he needs no further help.",
+      "transcript": "Agent:  Thanks for calling That's Automated, this is Maya. Heads up, I'm an AI assistant and this call is recorded. I'm the kind of agent we set up for businesses like yours. How can I help?\nUser:  Hi, this is Sam Rivera\nAgent:  Oh, hi Sam! What can I do for you?\nUser:  Um, I'm interested in hearing more about this project\nAgent:  Sure thing. What kind of business do you run?\nUser:  I'm an electrical contractor\nAgent:  Got it. And what's the business called?\nUser:  It's Rivera Electrical Contracting\nAgent:  Okay. When a call comes in and nobody can pick up, what happens to it right now?\nUser:  Uh, it goes to voicemail\nAgent:  Okay. Roughly how many calls a week do you think you're missing?\nUser:  Probably 10 to 15\nUser:  Sure\nAgent:  That makes sense. Want to hear how I'd answer for you? Pretend you're one of your own customers calling in, and I'll take the call as your front desk. Say stop whenever you've heard enough.\nUser:  Hi, uh, do you, um, residential electrical work\nAgent:  Yeah, we do. What are you needing help with?\nUser:  Um, I need a couple of new outlets installed in my kitchen\nAgent:  Sure thing. Can I get your name?\nUser:  Yeah, it's Sam Rivera\nAgent:  Nice to meet you, Sam. What's the best number for the team to call you back on?\nUser:  555-555-0101\nAgent:  Thanks. And what's the address or at least the neighborhood, so we know the service area?\nUser:  It's\nUser: - 123 Example Street in Auburn, Alabama\nAgent:  Perfect. When were you hoping someone could come out or call you back?\nUser:  Um, tomorrow\nAgent:  Okay. The team will confirm that when they call you back.\nAgent:  Okay. Back to being Maya from That's Automated. That-that's roughly what your customers would get any hour of the day. And you'd get the caller's details right after each call.\nUser:  Um, yeah, I really like that. What can I do to, uh, set up a call to hear more about that\nAgent:  Okay, okay. The next step is a quick 20 minute call with Daniel. Are mornings or afternoons usually better for you?\nUser:  Um, afternoons\nAgent:  Okay.\nAgent:  Sure, what day would work best for you?\nUser:  Um, how about tomorrow\nAgent:  Sure, let me see. Let me check for open times. Tomorrow's not available, but I've got Monday afternoon at 1 or 2 o'clock Central time. Which one works better?\nUser:  Um, I would prefer Daniel just to call me back, rather than setting an appointment\nAgent:  Sure.\nAgent:  That's fine. Is 5 5 5, 5 5 5, 0 1 0 1, the best number for Daniel to reach you?\nUser:  Yes\nAgent:  Perfect.\nAgent:  What are two times that would work for Daniel to call you?\nUser:  Um. Say 10 or 2\nAgent:  10 or 2. Sure.\nUser:  Are you still there\nAgent:  I'm here.\nUser:  What else do you need\nAgent:  Just a moment.\nAgent:  Just so I know, do you mean 10 in the morning or in the evening? And is 2 in the afternoon or in the morning?\nUser:  10 in the morning and 2 in the afternoon\nAgent:  Thanks.\nAgent:  Got it. I'll pass that to Daniel so he can call you back at 10 in the morning or 2 in the afternoon. Is it okay if we text you at this number about the callback or a follow-up from Daniel?\nUser:  No, I'd rather you not\nAgent:  No problem. Daniel can use email instead.\nAgent:  What's your email address?\nUser:  It is F-A-M-R-I-V-R at example dot com\nAgent:  Thanks. So that's F A M R I V R at example dot com. Is that right?\nUser:  No, it starts with an S, S as in Sam. S A M R I V R at example dot com\nAgent:  Thanks for catching that. S A M R I V R at example dot com. Is that right now?\nUser:  Yes\nAgent:  Okay, is there anything else I can help with before we wrap up?\nUser:  No, I don't think so\nAgent:  Alright, take care.",
+      "agentTransferOccurred": false,
+      "translation": null,
+      "extractedData": {
+        "Caller Business Name": "Rivera Electrical Contracting",
+        "Business Type": "electrical contractor",
+        "How Calls Are Handled Now": "it goes to voicemail",
+        "Missed Calls Per Week": "10 to 15",
+        "SMS Consent On Call": "No",
+        "email": "SAMRIVR@example.com",
+        "name": "Sam",
+        "Last Name": "Rivera"
+      },
+      "messageId": "Yd9QstagY8YB7Rwb3uKP",
+      "trialCall": false,
+      "id": "6ac91197d82ea79de4599b9c",
+      "executedCallActions": [
+        {
+          "actionId": "6ac84dd6f73c42f04a103504",
+          "actionType": "WORKFLOW_TRIGGER",
+          "actionName": "Request a callback from Daniel",
+          "executedAt": "2026-10-09T16:13:01.451Z",
+          "triggerReceivedAt": "2026-10-09T16:13:01.162Z"
+        }
+      ]
+    },
+    {
+      "contactId": "ContactSamRivera0002",
+      "fromNumber": "+15555550101",
+      "createdAt": "2026-10-09T15:34:24.214Z",
+      "duration": 250,
+      "agentId": "6ac7ec8e334399c74090affa",
+      "isAgentDeleted": false,
+      "summary": "Caller declined texting, confirmed the email address samrivr@example.com, and requested no further assistance. A callback request for Daniel was accepted for tomorrow at 10 or 2.",
+      "transcript": "Agent:  Thanks for calling That's Automated, this is Maya. Heads up, I'm an AI assistant and this call is recorded. I'm the kind of agent we set up for businesses like yours. How can I help?\nUser:  This is Sam Rivera with Test Bits Company\nAgent:  Hi! Nice to meet you, Sam. What kind of business do you run?\nUser:  I run a fence installation company\nAgent:  Got it. When a call comes in and nobody can pick up, what happens to it right now?\nUser:  Uh, Just goes to voicemail\nAgent:  Okay. Roughly how many calls a week do you think you're missing?\nUser:  Probably\nUser:  eleven or twelve\nAgent:  Okay, that helps. Want to hear how I'd answer for you? Pretend you're one of your own customers calling in, and I'll take the call as your front desk. Say \"stop\" whenever you've heard enough.\nUser:  Hi, um, do you install fences\nAgent:  Yes, we do. Thanks for calling Test Bits Company. What kind of fence are you looking for?\nUser:  Looking for a payment fence\nAgent:  Sure — no problem. May I get your name, and the best number for our team to call you back?\nUser:  Um\nUser: . Yeah, sure. It's uh Sam Rivera and\nUser:  um my phone number is five five five five five five zero one zero one\nAgent:  Thank you Sam. What's the address or area where you'd want the fence installed?\nUser:  One two three Example Street in Auburn, Alabama\nAgent:  Perfect, thanks. And when would you ideally want someone to come out or call you back?\nUser:  Um, how about tomorrow\nAgent:  Sounds good. I'll have the team confirm the exact time when they call you back. Okay, back to being Maya from That's Automated. That's roughly what your customers would get, any hour of the day. And you'd get the caller's details right after.\nUser:  Yeah, I like that system. Um, What can I do to uh, what's the next step\nAgent:  Lemme check on that quickly.\nAgent:  The next step is a quick 20 minute call with Daniel. He'll look at how your calls come in and tell you straight whether this is a fit. Want me to grab a time for you?\nUser:  Um, I'd rather not book right now. Can Daniel call me back instead\nAgent:  Sure, I'll pass that along. Best number for Daniel to reach you?\nUser:  It's a five five five, five five five, zero one zero one\nAgent:  Got it. What are two times that'd work for you to get that call?\nUser:  Um, how about tomorrow at ten or two\nAgent:  Okay, checking that. Got it. I'll pass that along to Daniel so he can call you back. Is it okay if we text you at this number about the callback or a follow-up from Daniel? You can reply stop any time.\nUser:  Uh, no, I'd rather you not\nAgent:  No problem, Daniel can use email. What’s the best email for you?\nUser:  It is F A M R I V R at example dot com\nAgent:  Thanks, let me read that back piece by piece. F A M R I V R\nAgent:  At example dot com. Is that all correct?\nUser:  No, it's S as in Sam, A M R I V R at example dot com\nAgent:  Thanks for correcting me. S A M R I V R At example dot com. Is that right now?\nUser:  Yes\nAgent:  Okay. Daniel will follow up that way. Anything else you'd like to cover?\nUser:  No, that's all\nAgent:  Take care. Goodbye.",
+      "agentTransferOccurred": false,
+      "translation": null,
+      "extractedData": {
+        "Caller Business Name": "Test Bits Company",
+        "Business Type": "fence installation",
+        "How Calls Are Handled Now": "Just goes to voicemail",
+        "Missed Calls Per Week": "eleven or twelve",
+        "SMS Consent On Call": "No"
+      },
+      "messageId": "CDxsKF5pLnLe1OFoS3Rt",
+      "trialCall": false,
+      "id": "6ac90980da5a5e5e2711d318",
+      "executedCallActions": [
+        {
+          "actionId": "6ac84dd6f73c42f04a103504",
+          "actionType": "WORKFLOW_TRIGGER",
+          "actionName": "Request a callback from Daniel",
+          "executedAt": "2026-10-09T15:37:24.256Z",
+          "triggerReceivedAt": "2026-10-09T15:37:23.976Z"
+        }
+      ]
+    }
+  ],
+  "total": 2,
+  "page": 1,
+  "pageSize": 10,
+  "traceId": "dda40943-cfaf-4896-a692-c6e15b959852"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "synthcall0000000000000001",
+  "agentId": "synthagent00000000000001",
+  "contactId": "synthcontact000000000001",
+  "createdAt": "2026-10-20T15:04:05.000Z",
+  "duration": 142,
+  "executedCallActions": [
+    {
+      "actionId": "synthaction0000000000001",
+      "actionName": "Book service visit",
+      "actionType": "APPOINTMENT_BOOKING",
+      "actionParameters": {},
+      "executedAt": "2026-10-20T15:06:00.000Z",
+      "triggerReceivedAt": "2026-10-20T15:05:58.000Z"
+    }
+  ],
+  "extractedData": {
+    "Service Type": "Repair"
+  },
+  "fromNumber": "+15555550123",
+  "isAgentDeleted": false,
+  "messageId": "synthmessage000000000001",
+  "summary": "Synthetic: caller booked a furnace check.",
+  "transcript": "bot:Synthetic transcript.\nhuman:Synthetic reply.\n",
+  "translation": null,
+  "trialCall": false,
+  "agentTransferOccurred": false
+}

@@ -1,0 +1,45 @@
+{
+  "callLogs": [
+    {
+      "contactId": "ContactHvacCaller001",
+      "fromNumber": "+15555550100",
+      "createdAt": "2026-09-21T16:01:47.573Z",
+      "duration": 6,
+      "agentId": "6aa4624852011579fbed8db4",
+      "isAgentDeleted": false,
+      "summary": "The call was very brief and disconnected shortly after the automated greeting from the after-hours assistant. No conversation or service details were exchanged.",
+      "transcript": "bot:Thanks for calling That's Automated Heating and Air. This is the after-hours assistant. What's \n",
+      "agentTransferOccurred": false,
+      "translation": null,
+      "extractedData": {},
+      "messageId": "DjPw5sEsQTw08cB7C9Lu",
+      "trialCall": false,
+      "id": "6ab154ebc00ea9294545de89",
+      "executedCallActions": []
+    },
+    {
+      "contactId": "ContactHvacCaller002",
+      "fromNumber": "+15555550101",
+      "createdAt": "2026-09-11T20:31:28.250Z",
+      "duration": 129,
+      "agentId": "6aa4624852011579fbed8db4",
+      "isAgentDeleted": false,
+      "summary": "The user called to report that their air conditioning system is not working and requested a repair service. The agent gathered details about the equipment, scheduled a morning appointment for the next day, and confirmed the user's contact information. The call ended successfully with the appointment set.",
+      "transcript": "bot:Thanks for calling That's Automated Heating and Air. This is the after-hours assistant. What's going on with your system today?\nhuman:Not working. \nbot:Got it. Is this for heating, air conditioning, or both? And is it a repair, regular maintenance, or are you looking for a new installation?\nhuman:Air conditioning and then through repair. \nbot:Thanks for letting me know. Do you happen to know the brand of your air conditioning unit, and about how old it is? If not, that's okay.\nhuman:Three minutes about eighteen years old. \nbot:Alright, so your air conditioner is about eighteen years old. Thanks for that info. Can I get your name, please?\nhuman:Sam Rivera. \nbot:Thanks, Sam. What’s the address where the system is located?\nhuman:One two three Example Street, in Auburn, Alabama \nbot:Thank you. So that's one two three Example Street in Auburn, Alabama.Would you like to schedule a service visit? I can check for the next \nhuman:Yeah. \nbot:available times.\nhuman:Yes. \nbot:Alright, one sec while I check the schedule for you… Are you hoping for a weekday appointment, or would Saturday work better?\nhuman:Saturday. \nbot:Got it, you’d like a Saturday appointment. The next available Saturday is tomorrow, September twelfth. Would you prefer morning or afternoon?\nhuman:Morning. \nbot:Alright, I’ll put you down for a morning appointment tomorrow, Saturday, September twelfth. The technician will confirm the exact time with you, and they’ll explain the diagnostic visit fee when they call.\n\nCan I get the best phone number for you, Sam?\nhuman:Five five five five five five zero one zero one. \nbot:Thanks. Just to confirm, that’s five five five - five five five - zero one zero one, right?\nhuman:Yes. \nbot:Great, you’re all set for a morning appointment tomorrow. Is there anything else you need help with today?\n",
+      "agentTransferOccurred": false,
+      "translation": null,
+      "extractedData": {
+        "Service Type": "Repair",
+        "Equipment": "Three minutes about eighteen years old"
+      },
+      "messageId": "VV44mQ6Xub4FxxCfbTmz",
+      "trialCall": false,
+      "id": "6aa46520964a65662f2af530",
+      "executedCallActions": []
+    }
+  ],
+  "total": 2,
+  "page": 1,
+  "pageSize": 5,
+  "traceId": "4cbfd128-505e-41a8-80f1-708ba6d01dd6"
+}

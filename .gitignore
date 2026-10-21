@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+logs/
+# Raw API responses contain real phone numbers and transcripts. Sanitise before moving into fixtures/.
+fixtures/raw/
+# Copies of live agent prompts taken before edits
+agent-backups/
