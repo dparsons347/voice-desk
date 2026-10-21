@@ -21,6 +21,8 @@ const EnvSchema = z.object({
   BOOKING_LOOKAHEAD_DAYS: z.coerce.number().int().positive().default(30),
   EXCLUDE_FROM_NUMBERS: z.string().default(""),
   DRY_RUN: z.enum(["true", "false"]).default("false"),
+  // HighLevel allows 100 per 10 seconds per app and location; stay under it.
+  RATE_LIMIT_PER_10S: z.coerce.number().int().min(1).max(100).default(80),
   SMS_FROM_NUMBER: z.string().min(1).optional(),
   SMS_CONSENT_FIELD: z.string().default("SMS Consent On Call"),
   BOOKING_GRACE_SECONDS: z.coerce.number().int().nonnegative().default(60),
@@ -35,6 +37,8 @@ export interface Config {
   apiVersion: string;
   timezone?: string;
   auditLogPath: string;
+  /** Most requests allowed in any 10-second window. */
+  rateLimitPer10s: number;
   /** Write tools log and return requests instead of sending them. */
   dryRun: boolean;
   sms: {
@@ -66,6 +70,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env, envFile = resol
       : resolve(PROJECT_ROOT, parsed.AUDIT_LOG_PATH),
     excludeFromNumbers: idList(parsed.EXCLUDE_FROM_NUMBERS),
     dryRun: parsed.DRY_RUN === "true",
+    rateLimitPer10s: parsed.RATE_LIMIT_PER_10S,
     sms: { fromNumber: parsed.SMS_FROM_NUMBER, consentField: parsed.SMS_CONSENT_FIELD },
     outcomeRules: {
       abandonThresholdSeconds: parsed.ABANDON_THRESHOLD_SECONDS,

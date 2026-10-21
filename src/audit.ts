@@ -11,6 +11,8 @@ export interface AuditEntry {
   status: number | "network_error";
   latencyMs: number;
   outcome: "ok" | "retrying" | "failed" | "dry_run";
+  /** Time spent waiting for the rate limiter before this request, when there was any. */
+  throttledMs?: number;
   error?: string;
 }
 

@@ -19,6 +19,7 @@ export const testConfig: Config = {
   auditLogPath: "/dev/null",
   excludeFromNumbers: ["+1 (555) 555-0199"],
   dryRun: false,
+  rateLimitPer10s: 80,
   sms: { consentField: "SMS Consent On Call" },
   outcomeRules: {
     abandonThresholdSeconds: 20,

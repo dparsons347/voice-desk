@@ -2,6 +2,7 @@ import type { z } from "zod";
 import type { AuditLog } from "../audit.js";
 import type { Config } from "../config.js";
 import { ConfigError, GhlApiError, hintForStatus } from "../errors.js";
+import type { TokenBucket } from "../rateLimit.js";
 import { READ_RETRY, parseRetryAfter, withRetry, type RetryOptions } from "../retry.js";
 
 export type Query = Record<string, string | number | boolean | undefined>;
@@ -33,6 +34,8 @@ export interface ClientDeps {
   fetch?: typeof fetch;
   retry?: RetryOptions;
   timeoutMs?: number;
+  /** Shared by every request this client makes, reads and writes alike. */
+  limiter?: TokenBucket;
 }
 
 export class HighLevelClient {
@@ -114,6 +117,8 @@ export class HighLevelClient {
       return { dryRun: true, request: { method: req.method, path: url.pathname + url.search, body: req.body } };
     }
 
+    const throttledMs = await this.throttle();
+    if (throttledMs) Object.assign(base, { throttledMs });
     const started = performance.now();
     let res: Response;
     try {
@@ -142,6 +147,7 @@ export class HighLevelClient {
       throw new GhlApiError(req.operation, res.status, false, `${check} ${WRITE_CHECK}`, detail);
     }
 
+    this.observeLimit(res);
     this.deps.audit.record({ ...base, status: res.status, latencyMs, outcome: "ok" });
     const text = await res.text();
     try {
@@ -151,9 +157,20 @@ export class HighLevelClient {
     }
   }
 
+  private throttle(): Promise<number> {
+    return this.deps.limiter?.acquire() ?? Promise.resolve(0);
+  }
+
+  /** Syncs the bucket with HighLevel's x-ratelimit-remaining, which counts every request in the window. */
+  private observeLimit(res: Response): void {
+    const remaining = res.headers.get("x-ratelimit-remaining");
+    if (remaining !== null) this.deps.limiter?.observeRemaining(Number(remaining));
+  }
+
   private async attempt(req: ReadRequest<z.ZodType>, url: URL, pit: string, attempt: number): Promise<unknown> {
     const started = performance.now();
-    const base = { tool: req.tool, operation: req.operation, method: "GET", path: req.path, attempt };
+    const throttledMs = await this.throttle();
+    const base = { tool: req.tool, operation: req.operation, method: "GET", path: req.path, attempt, ...(throttledMs && { throttledMs }) };
     const willRetry = attempt < this.retry.attempts;
 
     let res: Response;
@@ -178,6 +195,7 @@ export class HighLevelClient {
       throw new GhlApiError(req.operation, res.status, safeToRetry, check, detail, parseRetryAfter(res.headers.get("retry-after")));
     }
 
+    this.observeLimit(res);
     this.deps.audit.record({ ...base, status: res.status, latencyMs, outcome: "ok" });
     try {
       return await res.json();

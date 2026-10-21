@@ -35,7 +35,7 @@ Caller ──> HighLevel Voice AI agent ──> books / triggers callback workfl
                     voice-desk (TypeScript, stdio)
                     ├─ read tools ── outcomes derived from actions + calendar, never the AI summary
                     ├─ write tools ─ propose → preview → your approval → execute_confirmed
-                    └─ audit log (JSONL, redacted), read retry with backoff, no write retries
+                    └─ rate limiter, audit log (JSONL, redacted), read retry, no write retries
                                    │
                          Claude Desktop / Claude Code
 ```
@@ -148,6 +148,11 @@ read, the tool fails and names the missing scope, rather than reporting every bo
   question on that call (`SMS_CONSENT_FIELD`).
 - **Writes are never retried.** A failed write returns the error and its token stays used. A
   multi-part agent change reports which parts were applied before the failure.
+- **Rate limited** below HighLevel's limit of 100 requests per 10 seconds. A token bucket caps
+  every request (reads, retries and writes) at `RATE_LIMIT_PER_10S`, default 80, in any 10-second
+  window. It drops its count when HighLevel's `x-ratelimit-remaining` header reports less than it
+  expects, for example when another integration is using the same limit. Time spent waiting is
+  recorded as `throttledMs` in the audit log.
 - **Reads retry** on 429, 5xx and network errors: 3 attempts, exponential backoff with full jitter,
   honouring `Retry-After`.
 - **Audit log.** `logs/audit.jsonl` gets one line per HTTP request: time, tool, operation, status,
@@ -170,6 +175,9 @@ Things the docs don't say, all confirmed against live responses:
   agent (`bot:`/`human:` on one, `Agent:`/`User:` on another). `extractedData` is keyed by each
   field's display label.
 - Call logs include an undocumented `agentTransferOccurred` boolean.
+- Responses carry the rate limit: `x-ratelimit-max: 100` per `x-ratelimit-interval-milliseconds:
+  10000`, `x-ratelimit-remaining`, and a daily `x-ratelimit-limit-daily: 200000` with
+  `x-ratelimit-daily-remaining`.
 - Appointments the agent books carry `createdBy.source: "voice_ai"`.
 - If an extracted email already belongs to another contact, HighLevel silently skips saving it.
   Post-call notification emails create a contact for the recipient, so testing with the
@@ -178,7 +186,10 @@ Things the docs don't say, all confirmed against live responses:
 ## Limits
 
 - One HighLevel location per server.
-- No rate limiter yet. Reads back off on 429, but nothing throttles requests up front.
+- The rate limiter is per server process. Two copies of voice-desk on the same token each get the
+  full cap, though both still react to HighLevel's remaining count.
+- The 200,000-requests-per-day limit isn't tracked; at 80 per 10 seconds it would take about 7 hours
+  of continuous use to reach it.
 - `list_calls` and the report read at most 2,000 calls (40 pages) per request, and say when they stop early.
 
 ## Development
